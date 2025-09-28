@@ -1,8 +1,37 @@
-import { Mail, MessageSquare, Calendar, Send, Zap } from "lucide-react";
+"use client";
+
+import {
+  Mail,
+  MessageSquare,
+  Calendar,
+  Send,
+  Stars,
+  GitFork,
+} from "lucide-react";
 import { Button } from "../ui/button";
+import { useEffect, useState } from "react";
 
 export function Contact() {
   const year = new Date().getFullYear();
+  const [repoDetails, setRepoDetails] = useState({ stars: 0, forks: 0 });
+
+  useEffect(() => {
+    const fetchRepoDetails = async () => {
+      try {
+        const response = await fetch(
+          "https://api.github.com/repos/danielddemissie/dani-deme"
+        );
+        const data = await response.json();
+        setRepoDetails({
+          stars: data.stargazers_count,
+          forks: data.forks_count,
+        });
+      } catch {
+        setRepoDetails({ stars: 0, forks: 0 });
+      }
+    };
+    fetchRepoDetails();
+  }, []);
 
   return (
     <section
@@ -87,9 +116,36 @@ export function Contact() {
           </div>
         </div>
 
-        <footer className="border-t-4 w-full text-center">
-          <div className="mx-auto text-menu-foreground">
-            © {year} DANIEL DEMELASH
+        <footer className="border-t-4 border-dotted w-full text-center">
+          <div className="mx-auto text-menu-foreground flex items-center justify-between">
+            <p> © {year} DANIEL DEMELASH</p>
+            {/* show stars and forks */}
+            <div className="flex items-start justify-center gap-4 mt-2">
+              <a
+                href="https://github.com/danielddemissie/dani-deme"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline flex items-start"
+                aria-label="GitHub stars"
+              >
+                <Stars className="w-4 h-4" />
+                <span className="text-menu-foreground">
+                  {repoDetails.stars ?? 0}
+                </span>
+                <span className="sr-only">Stars</span>
+              </a>
+              <a
+                href="https://github.com/danielddemissie/dani-deme/network/members"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline flex items-start"
+                aria-label="GitHub forks"
+              >
+                <GitFork className="w-4 h-4" />
+                <span className="text-sm">{repoDetails.forks ?? 0}</span>
+                <span className="sr-only">Forks</span>
+              </a>
+            </div>
           </div>
         </footer>
       </div>
