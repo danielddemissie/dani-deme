@@ -5,9 +5,12 @@ export function Contact() {
   const year = new Date().getFullYear();
 
   return (
-    <section id="contact" className="">
-      <div className="flex-col items-start h-screen gap-8">
-        <div className="text-left mb-16">
+    <section
+      id="contact"
+      className="flex flex-col min-h-screen px-4 py-8 md:py-0 w-full max-w-4xl mx-auto"
+    >
+      <div className="flex flex-col items-start gap-8 w-full">
+        <div className="text-left mb-16 w-full">
           <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight">
             GET IN <span className="text-accent">TOUCH</span>
           </h2>
@@ -21,7 +24,7 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
           <div className="flex-col items-start w-full">
             <Mail className="w-12 h-12" />
             <p className="text-sm text-foreground font-medium mb-4">

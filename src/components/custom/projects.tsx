@@ -47,8 +47,11 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="flex-col items-center min-h-screen">
-      <div className="text-left mb-16">
+    <section
+      id="projects"
+      className="flex flex-col items-center min-h-screen px-4 py-8 md:py-0 w-full max-w-6xl mx-auto"
+    >
+      <div className="text-left mb-16 w-full">
         <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight">
           FEATURED <span className="text-accent">PROJECTS</span>
         </h2>
@@ -57,7 +60,7 @@ export function Projects() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
         {projects.map((project, index) => (
           <div key={index} className="py-2 overflow-hidden relative">
             <div className="aspect-video overflow-hidden relative">

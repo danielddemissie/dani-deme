@@ -45,8 +45,11 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="flex-col w-full items-start h-screen">
-      <div className="text-left mb-16">
+    <section
+      id="experience"
+      className="flex flex-col w-full items-start min-h-screen px-4 py-8 md:py-0 max-w-5xl mx-auto"
+    >
+      <div className="text-left mb-16 w-full">
         <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight">
           WORK <span className="text-accent">EXPERIENCE</span>
         </h2>

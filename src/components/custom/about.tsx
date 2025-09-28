@@ -29,8 +29,11 @@ const skills = [
 
 export function About() {
   return (
-    <section id="about" className="">
-      <div className="flex flex-col items-start h-screen">
+    <section
+      id="about"
+      className="flex flex-col min-h-screen px-4 py-8 md:py-0 w-full max-w-5xl mx-auto"
+    >
+      <div className="flex flex-col items-start w-full">
         <div className="text-left mb-16">
           <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight">
             ABOUT <span className="text-accent">ME</span>
@@ -40,7 +43,7 @@ export function About() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-6 w-full">
           <div className="relative">
             <div className="neo-card p-0 overflow-hidden">
               <img

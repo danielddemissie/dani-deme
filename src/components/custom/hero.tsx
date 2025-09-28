@@ -1,18 +1,22 @@
 "use client";
 
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { useTheme } from "./theme-provider";
 import { Badge } from "../ui/badge";
+import { handleNavClick } from "@/lib/utils";
 
 export function Hero() {
   const { theme } = useTheme();
 
   return (
-    <section className="flex items-center h-screen" id="hero">
-      <div className="grid lg:grid-cols-2 items-center justify-between">
-        <div className="text-left">
+    <section
+      className="flex items-center min-h-screen px-4 py-8 md:py-0"
+      id="hero"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center justify-between gap-8 w-full max-w-6xl mx-auto">
+        <div className="text-left w-full">
           <div className="mb-6">
             <h1 className="text-4xl md:text-6xl font-black mb-4 text-balance uppercase tracking-tight">
               Daniel <span className="text-accent">Demelash</span>
@@ -30,20 +34,28 @@ export function Hero() {
             cybersecurity and fraud prevention.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full">
             <Button>
-              <a href="#projects" className="group">
+              <a
+                href="#projects"
+                onClick={(e) => handleNavClick(e, "#projects")}
+                className="group"
+              >
                 VIEW MY WORK
               </a>
             </Button>
             <Button>
-              <a href="#contact" className="">
+              <a
+                href="#contact"
+                onClick={(e) => handleNavClick(e, "#contact")}
+                className="group"
+              >
                 GET IN TOUCH
               </a>
             </Button>
           </div>
 
-          <div className="flex items-center justify-start gap-1.5">
+          <div className="flex items-center justify-start gap-1.5 mt-4">
             <a
               href="https://github.com/danielddemissie"
               target="_blank"
@@ -73,7 +85,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="flex justify-center lg:justify-end">
+        <div className="hidden md:flex justify-center lg:justify-end ">
           <Image
             src={`/images/danideme${theme === "dark" ? "-dark" : ""}.png`}
             alt="Daniel Demelash"

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "./theme-toggle";
 import clsx from "clsx";
+import { handleNavClick } from "@/lib/utils";
 
 const navigation = [
   { name: "About", href: "#about" },
@@ -13,6 +14,7 @@ const navigation = [
 
 export function Navigation() {
   const [activeSection, setActiveSection] = useState("");
+  const [closeMobileMenu, setCloseMobileMenu] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,35 +34,13 @@ export function Navigation() {
     return () => observer.disconnect();
   }, []);
 
-  // scroll a little down to show the section title
-  // useEffect(() => {
-  //   const handleHashChange = () => {
-  //     const hash = window.location.hash.substring(1);
-  //     if (hash) {
-  //       const element = document.getElementById(hash);
-  //       if (element) {
-  //         const yOffset = -10; // Adjust this value to control the offset
-  //         const y =
-  //           element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-  //         window.scrollTo({ top: y, behavior: "auto" });
-  //       }
-  //     }
-  //   };
-
-  //   window.addEventListener("hashchange", handleHashChange, false);
-
-  //   return () => {
-  //     window.removeEventListener("hashchange", handleHashChange, false);
-  //   };
-  // }, []);
-
   return (
-    <header className="sticky top-0 z-50 bg-background">
-      <nav className="flex w-full items-center justify-between">
+    <header className="sticky top-0 z-50 bg-background w-full">
+      <nav className="flex w-full items-center justify-between px-4 py-2 md:px-8">
         <div>
           <a
             href="#"
-            className="text-2xl font-black text-primary uppercase tracking-wider"
+            className="text-xl md:text-2xl font-black text-primary uppercase tracking-wider"
           >
             DANIDEME.
           </a>
@@ -70,6 +50,7 @@ export function Navigation() {
             <a
               href={item.href}
               key={item.name}
+              onClick={(e) => handleNavClick(e, item.href)}
               className={clsx(
                 `uppercase text-accent-foreground text-sm px-2 py-1 transition-colors hover:shadow-shadow hover:rounded-base`
               )}
@@ -86,6 +67,49 @@ export function Navigation() {
             RESUME
           </a>
           <ThemeToggle />
+        </div>
+        <div className="flex md:hidden items-center">
+          <details className="relative">
+            <summary className="list-none cursor-pointer px-2 py-1 rounded-base border border-border bg-background shadow-shadow">
+              <span className="sr-only">Open navigation</span>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </summary>
+            <div className="absolute right-0 mt-2 w-48 bg-background border border-border rounded-base shadow-lg flex flex-col z-50">
+              {navigation.map((item) => (
+                <a
+                  href={item.href}
+                  key={item.name}
+                  onClick={(e) => {
+                    handleNavClick(e, item.href);
+                    setCloseMobileMenu(true);
+                  }}
+                  className="uppercase text-accent-foreground text-sm px-4 py-2 hover:bg-accent/10 border-b last:border-b-0 border-border"
+                >
+                  {item.name}
+                </a>
+              ))}
+              <a
+                href="/pdf/danideme.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="uppercase text-accent-foreground px-4 py-2 text-sm hover:bg-accent/10 border-b border-border"
+              >
+                RESUME
+              </a>
+              <div className="px-4 py-2">
+                <ThemeToggle />
+              </div>
+            </div>
+          </details>
         </div>
       </nav>
     </header>
