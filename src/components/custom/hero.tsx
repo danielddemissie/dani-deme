@@ -4,6 +4,7 @@ import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { useTheme } from "./theme-provider";
+import { Badge } from "../ui/badge";
 
 export function Hero() {
   const { theme } = useTheme();
@@ -25,56 +26,49 @@ export function Hero() {
           <p className="uppercase text-foreground max-w-xl mb-8 leading-relaxed">
             I build accessible, pixel-perfect digital experiences for the web.
             Currently crafting secure solutions at{" "}
-            <span className="neo-badge bg-secondary text-secondary-foreground inline">
-              PHISHFORT
-            </span>
-            , specializing in cybersecurity and fraud prevention.
+            <span className="text-pretty">PHISHFORT</span>, specializing in
+            cybersecurity and fraud prevention.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <a
-              href="#projects"
-              className="neo-button bg-accent text-accent-foreground group"
-            >
-              VIEW MY WORK
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform inline" />
-            </a>
-            <a href="#contact" className="neo-button">
-              GET IN TOUCH
-            </a>
+            <Button>
+              <a href="#projects" className="group">
+                VIEW MY WORK
+              </a>
+            </Button>
+            <Button>
+              <a href="#contact" className="">
+                GET IN TOUCH
+              </a>
+            </Button>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex items-center justify-start gap-1.5">
             <a
               href="https://github.com/danielddemissie"
               target="_blank"
               rel="noopener noreferrer"
-              className="neo-button text-background p-3"
             >
-              <Button>
+              <Badge>
                 <Github className="w-5 h-5" />
                 <span className="sr-only">GitHub</span>
-              </Button>
+              </Badge>
             </a>
             <a
               href="https://linkedin.com/in/danielddemissie"
               target="_blank"
               rel="noopener noreferrer"
-              className="neo-button text-white p-3"
             >
-              <Button>
+              <Badge>
                 <Linkedin className="w-5 h-5" />
                 <span className="sr-only">LinkedIn</span>
-              </Button>
+              </Badge>
             </a>
-            <a
-              href="mailto:daniel@danideme.com"
-              className="neo-button text-white p-3"
-            >
-              <Button>
+            <a href="mailto:daniel@danideme.com">
+              <Badge>
                 <Mail className="w-5 h-5" />
                 <span className="sr-only">Email</span>
-              </Button>
+              </Badge>
             </a>
           </div>
         </div>

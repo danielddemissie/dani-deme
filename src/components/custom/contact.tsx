@@ -91,7 +91,7 @@ export function Contact() {
           </div>
         </div>
 
-        <footer className="mt-20 pt-8 border-t-4 border-foreground text-center">
+        <footer className="border-t-4 text-center">
           <div className="mx-auto">© {year} DANIEL DEMELASH</div>
         </footer>
       </div>
