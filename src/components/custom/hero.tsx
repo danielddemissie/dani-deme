@@ -9,8 +9,8 @@ export function Hero() {
   const { theme } = useTheme();
 
   return (
-    <section className="flex items-center justify-center min-h-screen">
-      <div className="grid lg:grid-cols-2 gap-12 items-center justify-end">
+    <section className="flex items-center h-screen" id="hero">
+      <div className="grid lg:grid-cols-2 items-center justify-between">
         <div className="text-left">
           <div className="mb-6">
             <h1 className="text-4xl md:text-6xl font-black mb-4 text-balance uppercase tracking-tight">

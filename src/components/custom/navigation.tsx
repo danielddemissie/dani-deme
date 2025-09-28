@@ -32,41 +32,62 @@ export function Navigation() {
     return () => observer.disconnect();
   }, []);
 
+  // scroll a little down to show the section title
+  // useEffect(() => {
+  //   const handleHashChange = () => {
+  //     const hash = window.location.hash.substring(1);
+  //     if (hash) {
+  //       const element = document.getElementById(hash);
+  //       if (element) {
+  //         const yOffset = -10; // Adjust this value to control the offset
+  //         const y =
+  //           element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  //         window.scrollTo({ top: y, behavior: "auto" });
+  //       }
+  //     }
+  //   };
+
+  //   window.addEventListener("hashchange", handleHashChange, false);
+
+  //   return () => {
+  //     window.removeEventListener("hashchange", handleHashChange, false);
+  //   };
+  // }, []);
+
   return (
-    <header className="fixed top-0 z-50 w-full bg-background neo-border border-t-0 border-l-0 border-r-0">
-      <div className="container mx-auto px-6 py-4">
-        <nav className="flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-background">
+      <nav className="flex w-full items-center justify-between">
+        <div>
           <a
             href="#"
             className="text-2xl font-black text-primary uppercase tracking-wider"
           >
             DANIDEME.
           </a>
-
-          <div className="hidden md:flex items-center space-x-2 border-border shadow-shadow rounded-base neo-border px-3 py-2">
-            {navigation.map((item) => (
-              <a
-                href={item.href}
-                key={item.name}
-                className={clsx(
-                  `uppercase text-accent-foreground text-sm px-2 py-1 transition-colors hover:shadow-shadow hover:rounded-base`
-                )}
-              >
-                {item.name}
-              </a>
-            ))}
+        </div>
+        <div className="hidden md:flex items-center space-x-2 border-border shadow-shadow rounded-base neo-border px-3 py-2">
+          {navigation.map((item) => (
             <a
-              href="/pdf/danideme.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="uppercase text-accent-foreground px-2 py-1 transition-colors text-sm hover:shadow-shadow hover:rounded-base"
+              href={item.href}
+              key={item.name}
+              className={clsx(
+                `uppercase text-accent-foreground text-sm px-2 py-1 transition-colors hover:shadow-shadow hover:rounded-base`
+              )}
             >
-              RESUME
+              {item.name}
             </a>
-            <ThemeToggle />
-          </div>
-        </nav>
-      </div>
+          ))}
+          <a
+            href="/pdf/danideme.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="uppercase text-accent-foreground px-2 py-1 transition-colors text-sm hover:shadow-shadow hover:rounded-base"
+          >
+            RESUME
+          </a>
+          <ThemeToggle />
+        </div>
+      </nav>
     </header>
   );
 }
