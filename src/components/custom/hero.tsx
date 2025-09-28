@@ -6,9 +6,21 @@ import Image from "next/image";
 import { useTheme } from "./theme-provider";
 import { Badge } from "../ui/badge";
 import { handleNavClick } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 export function Hero() {
   const { theme } = useTheme();
+  const [delayedImage, setDelayedImage] = useState(
+    `/images/danideme${theme === "dark" ? "-dark" : ""}.png`
+  );
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDelayedImage(`/images/danideme${theme === "dark" ? "-dark" : ""}.png`);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [theme]);
 
   return (
     <section
@@ -87,7 +99,7 @@ export function Hero() {
 
         <div className="hidden md:flex justify-center lg:justify-end ">
           <Image
-            src={`/images/danideme${theme === "dark" ? "-dark" : ""}.png`}
+            src={delayedImage}
             alt="Daniel Demelash"
             width={350}
             height={350}

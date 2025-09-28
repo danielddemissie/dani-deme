@@ -7,14 +7,13 @@ import { handleNavClick } from "@/lib/utils";
 
 const navigation = [
   { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ];
 
 export function Navigation() {
   const [activeSection, setActiveSection] = useState("");
-  const [closeMobileMenu, setCloseMobileMenu] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -52,7 +51,9 @@ export function Navigation() {
               key={item.name}
               onClick={(e) => handleNavClick(e, item.href)}
               className={clsx(
-                `uppercase text-accent-foreground text-sm px-2 py-1 transition-colors hover:shadow-shadow hover:rounded-base`
+                `uppercase text-accent-foreground text-sm px-2 py-1 transition-colors hover:shadow-shadow hover:rounded-base`,
+                activeSection === item.href.substring(1) &&
+                  "text-menu-foreground"
               )}
             >
               {item.name}
@@ -90,7 +91,6 @@ export function Navigation() {
                   key={item.name}
                   onClick={(e) => {
                     handleNavClick(e, item.href);
-                    setCloseMobileMenu(true);
                   }}
                   className="uppercase text-accent-foreground text-sm px-4 py-2 hover:bg-accent/10 border-b last:border-b-0 border-border"
                 >

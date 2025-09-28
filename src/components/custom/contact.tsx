@@ -25,24 +25,19 @@ export function Contact() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-          <div className="flex-col items-start w-full">
-            <Mail className="w-12 h-12" />
-            <p className="text-sm text-foreground font-medium mb-4">
-              Drop me a line anytime
-            </p>
+          <div className="flex-col items-center justify-center w-full text-center">
+            <Mail className="w-12 h-12 mx-auto" />
+            <p className="text-sm font-medium mb-4">Drop me a line anytime</p>
             <Button>
-              <a
-                href="mailto:daniel@danideme.com"
-                className="neo-button bg-accent text-accent-foreground text-xs"
-              >
+              <a href="mailto:daniel@danideme.com" className="text-xs">
                 SEND EMAIL
               </a>
             </Button>
           </div>
 
-          <div className="flex-col items-start w-full">
-            <MessageSquare className="w-12 h-12" />
-            <p className="text-sm text-foreground font-medium mb-4">
+          <div className="flex-col items-center justify-center w-full text-center">
+            <MessageSquare className="w-12 h-12 mx-auto" />
+            <p className="text-sm font-medium mb-4">
               Let's connect professionally
             </p>
             <Button>
@@ -50,18 +45,16 @@ export function Contact() {
                 href="https://linkedin.com/in/danielddemissie"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="neo-button bg-secondary text-secondary-foreground text-xs"
+                className="text-xs"
               >
                 CONNECT
               </a>
             </Button>
           </div>
 
-          <div className="flex-col items-center w-full">
-            <Calendar className="w-12 h-12" />
-            <p className="text-sm text-foreground font-medium mb-4">
-              Book a time to chat
-            </p>
+          <div className="flex-col items-center w-full justify-center text-center">
+            <Calendar className="w-12 h-12 mx-auto" />
+            <p className="text-sm font-medium mb-4">Book a time to chat</p>
             <Button>
               <a
                 href="https://calendly.com/danielddemissie"
@@ -94,7 +87,7 @@ export function Contact() {
           </div>
         </div>
 
-        <footer className="border-t-4 text-center">
+        <footer className="border-t-4 w-full text-center">
           <div className="mx-auto">© {year} DANIEL DEMELASH</div>
         </footer>
       </div>

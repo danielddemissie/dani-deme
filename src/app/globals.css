@@ -14,6 +14,7 @@
   --overlay: oklch(91.647% 0.01756 17.153 / 0.8);
   --shadow: 4px 4px 0px 0px var(--border);
   --chart-active-dot: #000;
+  --menu-foreground: #797979;
 }
 
 .dark {
@@ -26,6 +27,7 @@
   --ring: oklch(100% 0 0);
   --shadow: 4px 4px 0px 0px var(--border);
   --chart-active-dot: #fff;
+  --menu-foreground: #797979;
 }
 
 @theme inline {
@@ -37,11 +39,7 @@
   --color-border: var(--border);
   --color-overlay: var(--overlay);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
+  --color-menu-foreground: var(--menu-foreground);
 
   --spacing-boxShadowX: 4px;
   --spacing-boxShadowY: 4px;

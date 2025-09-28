@@ -54,7 +54,7 @@ export function About() {
             </div>
           </div>
           <div className="space-y-6">
-            <div className="neo-card">
+            <div className="">
               <p className="text-foreground font-medium text-pretty">
                 As a fullstack software engineer at{" "}
                 <span className="neo-badge bg-secondary text-secondary-foreground inline">
@@ -66,7 +66,7 @@ export function About() {
                 that process and analyze security data.
               </p>
             </div>
-            <div className="neo-card">
+            <div>
               <p className="text-foreground font-medium text-pretty">
                 I have experience working across the entire technology stack,
                 from designing intuitive user interfaces to architecting
@@ -75,7 +75,7 @@ export function About() {
                 latest web technologies.
               </p>
             </div>
-            <div className="neo-card">
+            <div>
               <p className="text-foreground font-medium text-pretty">
                 When I'm not coding, you can find me exploring new technologies,
                 contributing to open source projects, or sharing my knowledge
@@ -89,7 +89,7 @@ export function About() {
           {skills.map((skill) => (
             <div
               key={skill.title}
-              className={`neo-card col-span-2 text-center ${skill.color}`}
+              className={`col-span-2 text-center ${skill.color}`}
             >
               <skill.icon className="w-12 h-12 mx-auto mb-4" />
               <h3 className="font-black mb-2 text-sm uppercase tracking-wide">

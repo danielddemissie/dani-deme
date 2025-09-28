@@ -60,7 +60,10 @@ export function Experience() {
 
       <div className="space-y-8">
         {experiences.map((exp, index) => (
-          <div key={index} className="py-2">
+          <div
+            key={index}
+            className="py-2 border-dotted border-2 rounded-base px-4"
+          >
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
               <div className="mb-4 lg:mb-0">
                 <h3 className="text-xl font-black mb-2 uppercase tracking-wide">
