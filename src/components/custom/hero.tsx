@@ -17,7 +17,7 @@ export function Hero() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setDelayedImage(`/images/danideme${theme === "dark" ? "-dark" : ""}.png`);
-    }, 100);
+    }, 300);
 
     return () => clearTimeout(timer);
   }, [theme]);
@@ -34,16 +34,15 @@ export function Hero() {
               Daniel <span className="text-accent">Demelash</span>
             </h1>
 
-            <div className="neo-badge bg-primary text-primary-foreground mb-2 inline-block">
-              FULLSTACK SOFTWARE ENGINEER
+            <div className="uppercase mb-2 inline-block">
+              MID LEVEL SOFTWARE developer
             </div>
           </div>
 
           <p className="uppercase text-foreground max-w-xl mb-8 leading-relaxed">
-            I build accessible, pixel-perfect digital experiences for the web.
-            Currently crafting secure solutions at{" "}
-            <span className="text-pretty">PHISHFORT</span>, specializing in
-            cybersecurity and fraud prevention.
+            I'm Daniel, fullstack typeScript developer. Building good quality
+            softwares with TypeScript, React/Next.js, and NodeJs/NestJs I'm
+            currently working as mid-level software developer.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full">

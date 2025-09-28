@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ThemeToggle } from "./theme-toggle";
 import clsx from "clsx";
 import { handleNavClick } from "@/lib/utils";
@@ -33,6 +33,15 @@ export function Navigation() {
     return () => observer.disconnect();
   }, []);
 
+  const mobileMenuRef = useRef<HTMLDetailsElement>(null);
+
+  // Helper to close mobile menu
+  const closeMobileMenu = () => {
+    if (mobileMenuRef.current) {
+      mobileMenuRef.current.removeAttribute("open");
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-background w-full">
       <nav className="flex w-full items-center justify-between px-4 py-2 md:px-8">
@@ -51,7 +60,7 @@ export function Navigation() {
               key={item.name}
               onClick={(e) => handleNavClick(e, item.href)}
               className={clsx(
-                `uppercase text-accent-foreground text-sm px-2 py-1 transition-colors hover:shadow-shadow hover:rounded-base`,
+                `uppercase text-accent-foreground text-sm px-2 py-1 transition-colors`,
                 activeSection === item.href.substring(1) &&
                   "text-menu-foreground"
               )}
@@ -63,14 +72,14 @@ export function Navigation() {
             href="/pdf/danideme.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="uppercase text-accent-foreground px-2 py-1 transition-colors text-sm hover:shadow-shadow hover:rounded-base"
+            className="uppercase text-accent-foreground px-2 py-1 transition-colors text-sm hover:text-menu-foreground"
           >
             RESUME
           </a>
           <ThemeToggle />
         </div>
         <div className="flex md:hidden items-center">
-          <details className="relative">
+          <details className="relative" ref={mobileMenuRef}>
             <summary className="list-none cursor-pointer px-2 py-1 rounded-base border border-border bg-background shadow-shadow">
               <span className="sr-only">Open navigation</span>
               <svg
@@ -91,6 +100,7 @@ export function Navigation() {
                   key={item.name}
                   onClick={(e) => {
                     handleNavClick(e, item.href);
+                    closeMobileMenu();
                   }}
                   className="uppercase text-accent-foreground text-sm px-4 py-2 hover:bg-accent/10 border-b last:border-b-0 border-border"
                 >
@@ -101,6 +111,7 @@ export function Navigation() {
                 href="/pdf/danideme.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={closeMobileMenu}
                 className="uppercase text-accent-foreground px-4 py-2 text-sm hover:bg-accent/10 border-b border-border"
               >
                 RESUME

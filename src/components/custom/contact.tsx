@@ -7,7 +7,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="flex flex-col min-h-screen px-4 py-8 md:py-0 w-full max-w-4xl mx-auto"
+      className="flex flex-col min-h-screen px-4 py-8 md:py-0 w-full max-w-5xl mx-auto"
     >
       <div className="flex flex-col items-start gap-8 w-full">
         <div className="text-left mb-16 w-full">
@@ -88,7 +88,9 @@ export function Contact() {
         </div>
 
         <footer className="border-t-4 w-full text-center">
-          <div className="mx-auto">© {year} DANIEL DEMELASH</div>
+          <div className="mx-auto text-menu-foreground">
+            © {year} DANIEL DEMELASH
+          </div>
         </footer>
       </div>
     </section>

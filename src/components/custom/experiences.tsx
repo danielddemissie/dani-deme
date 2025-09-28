@@ -1,5 +1,4 @@
 import { ExternalLink, Calendar, MapPin } from "lucide-react";
-import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 
 const experiences = [
@@ -10,36 +9,8 @@ const experiences = [
     location: "REMOTE",
     description:
       "Building cybersecurity solutions to protect businesses from online threats. Developing both frontend applications and backend systems for fraud detection and prevention.",
-    technologies: [
-      "REACT",
-      "NEXT.JS",
-      "TYPESCRIPT",
-      "NODE.JS",
-      "POSTGRESQL",
-      "PYTHON",
-    ],
+    technologies: ["REACT", "NEXT.JS", "TYPESCRIPT", "NODE.JS", "POSTGRESQL"],
     link: "https://phishfort.com",
-    color: "bg-accent text-accent-foreground",
-  },
-  {
-    title: "SOFTWARE DEVELOPER",
-    company: "PREVIOUS COMPANY",
-    period: "2021 — 2023",
-    location: "HYBRID",
-    description:
-      "Developed and maintained web applications using modern JavaScript frameworks. Collaborated with cross-functional teams to deliver high-quality software solutions.",
-    technologies: ["REACT", "VUE.JS", "JAVASCRIPT", "EXPRESS.JS", "MONGODB"],
-    color: "",
-  },
-  {
-    title: "JUNIOR DEVELOPER",
-    company: "STARTUP INC.",
-    period: "2020 — 2021",
-    location: "ON-SITE",
-    description:
-      "Started my professional journey building responsive web applications and learning best practices in software development.",
-    technologies: ["HTML", "CSS", "JAVASCRIPT", "REACT", "GIT"],
-    color: "",
   },
 ];
 
@@ -70,9 +41,7 @@ export function Experience() {
                   {exp.title}
                 </h3>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                  <div
-                    className={`neo-badge ${exp.color} inline-flex items-center gap-1`}
-                  >
+                  <div className={`inline-flex items-center gap-1`}>
                     {exp.company}
                     {exp.link && (
                       <a
@@ -103,10 +72,7 @@ export function Experience() {
 
             <div className="flex flex-wrap gap-2">
               {exp.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="neo-badge bg-background text-foreground text-xs"
-                >
+                <span key={tech} className="text-menu-foreground text-xs">
                   {tech}
                 </span>
               ))}

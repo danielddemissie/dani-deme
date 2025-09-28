@@ -5,25 +5,21 @@ const skills = [
     icon: Code,
     title: "FRONTEND DEV",
     description: "React, Next.js, TypeScript, Tailwind CSS",
-    color: "bg-accent text-accent-foreground",
   },
   {
     icon: Database,
     title: "BACKEND DEV",
-    description: "Node.js, Python, PostgreSQL, MongoDB",
-    color: "bg-secondary text-secondary-foreground",
+    description: "Node.js, NextJs, PostgreSQL, MongoDB",
   },
   {
     icon: Globe,
     title: "FULL STACK",
     description: "End-to-end application development",
-    color: "",
   },
   {
     icon: Shield,
     title: "SECURITY",
     description: "Cybersecurity, fraud prevention, secure coding",
-    color: "",
   },
 ];
 
@@ -87,15 +83,12 @@ export function About() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-8 items-center">
           {skills.map((skill) => (
-            <div
-              key={skill.title}
-              className={`col-span-2 text-center ${skill.color}`}
-            >
+            <div key={skill.title} className={`col-span-2 text-center`}>
               <skill.icon className="w-12 h-12 mx-auto mb-4" />
               <h3 className="font-black mb-2 text-sm uppercase tracking-wide">
                 {skill.title}
               </h3>
-              <p className="text-xs font-medium opacity-90">
+              <p className="text-xs text-menu-foreground font-medium opacity-90">
                 {skill.description}
               </p>
             </div>
