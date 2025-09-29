@@ -9,6 +9,7 @@ const navigation = [
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
+  { name: "Posts", href: "#posts" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -47,7 +48,7 @@ export function Navigation() {
       <nav className="flex w-full items-center justify-between px-4 py-2 md:px-8">
         <div>
           <a
-            href="#"
+            href="/#about"
             className="text-xl md:text-2xl font-black text-primary uppercase tracking-wider"
           >
             DANIDEME.
