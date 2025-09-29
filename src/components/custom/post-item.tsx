@@ -1,4 +1,4 @@
-import { Post } from ".content-collections/generated/index";
+import { Post } from "content-collections";
 import Link from "next/link";
 
 interface PostItemProps {
