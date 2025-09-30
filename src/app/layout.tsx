@@ -80,7 +80,7 @@ export default function RootLayout({
         <body className="bg-background text-foreground flex-col items-center min-h-screen lg:mx-auto lg:w-5xl">
           <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
             <Navigation />
-            {children}
+            <div className="mx-auto w-[98%]">{children}</div>
           </ThemeProvider>
           <Script id="service-worker-register" strategy="afterInteractive">
             {`

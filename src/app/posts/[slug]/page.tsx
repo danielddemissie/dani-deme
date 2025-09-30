@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { allPosts } from "content-collections";
 import { notFound } from "next/navigation";
@@ -44,42 +43,32 @@ export default async function SinglePost({ params }: PageProps) {
   const post = allPosts.find((post) => post.slug === slug);
 
   if (!post) notFound();
+
   return (
     <>
-      <article>
+      <article className="flex flex-col min-h-screen px-4 py-8 md:py-0 w-full max-w-5xl mx-auto">
         <header>
-          <h1 className="text-2xl font-medium">{post.title}</h1>
+          <h1 className=" text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight">
+            {post.title}
+          </h1>
 
-          <div className="mb-10 mt-2 flex items-center gap-4 font-mono text-sm text-zinc-500">
+          <div className="mb-10 flex items-center gap-4text-sm">
             <div>
-              <a
-                href="https://twitter.com/danieldemeD"
-                className="transition-colors hover:text-zinc-200/80"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @danideme
-              </a>{" "}
+              <span className="">{post.readingTime}</span>{" "}
               <span className="px-2">|</span>{" "}
               <PostDate dateString={post.createdAt} />{" "}
             </div>
-
-            <Link
-              href="/posts"
-              className="ml-auto border-b border-dotted text-zinc-200 transition-colors hover:text-zinc-200/80"
-            >
-              Back
-            </Link>
           </div>
         </header>
-        <MDXContent code={post?.mdx} />
+        <MDXContent code={post.mdx} />
+        <footer className="w-full my-10">
+          <div className="mx-auto text-menu-foreground flex items-center justify-between">
+            <p className="font-black text-center">Thank you for reading!</p>
+          </div>
+        </footer>
       </article>
       <Suspense
-        fallback={
-          <div className="mt-10 text-center text-zinc-500">
-            Loading content...
-          </div>
-        }
+        fallback={<div className="mt-10 text-center">Loading post...</div>}
       ></Suspense>
     </>
   );

@@ -27,7 +27,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="flex flex-col min-h-screen px-4 py-8 md:py-0 w-full max-w-5xl mx-auto"
+      className="flex flex-col px-4 py-8 md:py-0 w-full max-w-5xl mx-auto"
     >
       <div className="flex flex-col items-start w-full">
         <div className="text-left mb-16">

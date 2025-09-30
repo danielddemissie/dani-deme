@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ThemeToggle } from "./theme-toggle";
 import clsx from "clsx";
-import { handleNavClick } from "@/lib/utils";
+import { useHandleNavClick } from "@/lib/use-handle-nav-click";
 
 const navigation = [
   { name: "About", href: "#about" },
@@ -35,6 +35,7 @@ export function Navigation() {
   }, []);
 
   const mobileMenuRef = useRef<HTMLDetailsElement>(null);
+  const handleNavClick = useHandleNavClick();
 
   // Helper to close mobile menu
   const closeMobileMenu = () => {

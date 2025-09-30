@@ -5,6 +5,12 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrism from "rehype-prism-plus";
+import readingTime from "reading-time";
+
+function calculateReadingTime(content: string) {
+  const contentWithoutSvg = content.replace(/<svg+.+?(?=<\/svg>)<\/svg>/, "");
+  return readingTime(contentWithoutSvg).text;
+}
 
 const posts = defineCollection({
   name: "Post",
@@ -27,6 +33,7 @@ const posts = defineCollection({
     return {
       ...document,
       mdx,
+      readingTime: calculateReadingTime(document.content),
     };
   },
 });

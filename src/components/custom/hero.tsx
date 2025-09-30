@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import { useTheme } from "./theme-provider";
 import { Badge } from "../ui/badge";
-import { handleNavClick } from "@/lib/utils";
+import { useHandleNavClick } from "@/lib/use-handle-nav-click";
 import { useEffect, useState } from "react";
 
 export function Hero() {
@@ -22,6 +22,7 @@ export function Hero() {
     return () => clearTimeout(timer);
   }, [theme]);
 
+  const handleNavClick = useHandleNavClick();
   return (
     <section
       className="flex items-center min-h-screen px-4 py-8 md:py-0"

@@ -1,21 +1,20 @@
 ﻿---
-title: "How to build a blog site with Hugo and Vercel"
-
-createdAt: "2024-06-17"
-
-summary: "This my step by step guide to build and deploy blog site with `Hugo` and `Vercel` that I used for my blog site and I hope this might be some use for you too."
-
-image: "https://danideme-com.vercel.app/images/posts/blog-site-with-hugo-and-vercel.png"
-
-slug: "blog-site-with-hugo-and-vercel"
+title: How to build a blog site with Hugo and Vercel
+createdAt: 2024-06-17
+summary: This my step by step guide to build and deploy blog site with `Hugo` and `Vercel` that I used for my blog site and I hope this might be some use for you too.
+image: https://danideme-com.vercel.app/images/posts/blog-site-with-hugo-and-vercel.png
+slug: blog-site-with-hugo-and-vercel
 ---
 
 ![hugo-vercel](https://danideme-com.vercel.app/images/posts/blog-site-with-hugo-and-vercel.png)
 
 This a step by step guide to build and deploy blog site with `Hugo` and `Vercel`. So lets begin:
 
+<br />
+
 ### 1. Install Hugo
 
+<br />
 Installing Hugo on Linux.
 
 If your distribution support `snap`
@@ -52,7 +51,9 @@ hugo  v0.105.0-0e3b42b4a9bdeb4d866210819fc6ddcf51582ffa+extended  linux/amd64  B
 
 If you are using windows follow this instruction [hugo-windows](https://gohugo.io/getting-started/installing/#windows)
 
+<br />
 ### 2.Create new Site
+<br />
 
 After installing Hugo lets create our blog site
 
@@ -70,64 +71,54 @@ hugo  new  site  blog-site
 
 This will give us short instruction on how to add a theme and content to our site. We will see all of them in detail.
 
-```
-
+```bash
 Just a few more steps and you're ready to go:
 
-
-
 1. Download a theme into the same-named folder.
-
 Choose a theme from https://themes.gohugo.io/ or
-
 create your own with the "hugo new theme <THEMENAME>" command.
 
 2. Perhaps you want to add some content. You can add single files
-
 with "hugo new <SECTIONNAME>/<FILENAME>.<FORMAT>".
 
 3. Start the built-in live server via "hugo server".
-
-
 
 Visit https://gohugo.io/ for quickstart guide and full documentation.
 
 ```
 
+<br />
+
 ### 3.Use Hugo theme
+
+<br />
 
 Hugo has nice configuration to add our prefers them and manage the UI/UX of our site. once we select a [Hugo-Themes](https://themes.gohugo.io/)
 
 we can proceed to add a theme to our site using one of these two methods.
 
 1. Make the selected theme git repository a `subtree` to our site
-
-- if want to follow the change to the parent and update accordingly.
-
-2. Manually download the theme git repository and unzip it in our site under `theme` directory or use `git clone`.
-
-- use this approach if you are satisfied with the current change and doesn't intend to follow the change of the parent (theme) repository.
-
-For our site lets use [m10c](https://github.com/vaga/hugo-theme-m10c.git) a theme similar to this blog site.
+   - if want to follow the change to the parent and update accordingly.
+2. Manually download the theme git repository and unzip it in our site under `theme` directory or use `git clone`. - use this approach if you are satisfied with the current change and doesn't intend to follow the change of the parent (theme) repository.
+   For our site lets use [m10c](https://github.com/vaga/hugo-theme-m10c.git) a theme similar to this blog site.
 
 ```bash
-
 cd  themes
-
 git  clone  https://github.com/vaga/hugo-theme-m10c.git  ./m10c
 
 ```
 
+<br />
+
 ### 4.Update the config.toml
+
+<br />
 
 Now we have to tell the config.toml file
 
 - the theme used
-
 - about the author of the blog
-
 - available menus
-
 - social media links and more
 
 Open up your config.toml file and add this information
@@ -135,94 +126,57 @@ Open up your config.toml file and add this information
 `Remember to change the data to your own information.`
 
 ```bash
-
 languageCode  =  "en-us"
-
 title  =  "Daniel's Blog"
-
 theme  =  "m10c"
-
-
 
 [[menu.main]]
 
 identifier  =  "tags"
-
 name  =  "Tags"
-
 url  =  "/tags/"
-
 weight  =  2
-
-
 
 [[menu.main]]
 
 identifier  =  "home"
-
 name  =  "Home"
-
 url  =  "/"
-
 weight  =  1
 
-
-
 [params]
-
 author  =  "Daniel Demelash"
-
 description  =  "The little things I know about software development."
-
 avatar  =  "images/profile_pic.png"
 
 #add avatar image
-
 menu_item_separator  =  "|"
-
 favicon  =  "images/favicon.ico"
 
 #add favico image
-
-
-
 [[params.social]]
-
 icon  =  "github"
-
 name  =  "GitHub"
-
 url  =  "https://github.com/danielddemissie"
 
-
-
 [[params.social]]
-
 icon  =  "linkedin"
-
 name  =  "Linkedin"
-
 url  =  "https://linkedin.com/in/danielddemissie"
 
-
-
 [[params.social]]
-
 icon  =  "twitter"
-
 name  =  "Twitter"
-
 url  =  "https://twitter.com/danielddeme"
-
-
-
-
-
 ```
 
 For this to work properly you have to add `favico` and the `avatar` image inside public/images folder and static/images folder with same file name.
 
+<br />
+
 ### 5. Create first post
+
+<br />
 
 Now it's time to add our first blog to our site to do this first go back to main directory and run this command.
 
@@ -237,9 +191,7 @@ hugo  new  posts/first-post.md
 This command create posts directory with name `first-post.md` inside the `content` folder. When you open this file in text editor you will see a fragment of code `darft = true` which means the post is in a draft mode or so add some content to this file and change `draft = false` after doing that save your changes and run these commands.
 
 ```bash
-
 hugo
-
 hugo  server
 
 ```
@@ -259,47 +211,35 @@ hugo v0.105.0-0e3b42b4a9bdeb4d866210819fc6ddcf51582ffa+extended linux/amd64 Buil
 -------------------+-----
 
 Pages | 10
-
 Paginator pages | 0
-
 Non-page files | 0
-
 Static files | 1
-
 Processed images | 0
-
 Aliases | 2
-
 Sitemaps | 1
-
 Cleaned | 0
 
-
-
 Total in 94 ms
-
 ```
 
 `hugo server` will start up the application at port 1313 If no other service is running on that port. Now that our blog site is up and running lets open http://localhost:1313 in our browser.
 
+<br />
+
 ### 6. Push to gitHub
+
+<br />
 
 Create new Github repository with the site name and copy the url.
 
 `The only reason i rename the main branch from master to main is I like main better unlike github's reason`.
 
 ```bash
-
 git  init
-
 git  add  -A
-
 git  commit  -m  "START: first commit"
-
 git  branch  -M  main
-
 git  remote  add  origin  url-to-your-blog-repository
-
 git  push  -u  origin  main
 
 ```
@@ -317,13 +257,9 @@ To deploy your Hugo sites to vercel does not require any additional configuratio
 Lets deploy. first check If everything is saved then
 
 ```bash
-
 git  add  .
-
 git  commit  -m  "DEPLOY: deploy to vercel"
-
 git  push
-
 ```
 
 #### Open your vercel dashboard and Add new project
