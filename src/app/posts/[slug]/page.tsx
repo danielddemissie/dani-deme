@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { MDXContent } from "@content-collections/mdx/react";
 import PostDate from "@/components/custom/post-date";
 import { Suspense } from "react";
+import { useMDXComponents } from "@/components/custom/mdx";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -44,6 +45,8 @@ export default async function SinglePost({ params }: PageProps) {
 
   if (!post) notFound();
 
+  const MDXComponents = useMDXComponents({});
+
   return (
     <>
       <article className="flex flex-col min-h-screen px-4 py-8 md:py-0 w-full max-w-5xl mx-auto">
@@ -60,7 +63,7 @@ export default async function SinglePost({ params }: PageProps) {
             </div>
           </div>
         </header>
-        <MDXContent code={post.mdx} />
+        <MDXContent code={post.mdx} components={MDXComponents} />
         <footer className="w-full my-10">
           <div className="mx-auto text-menu-foreground flex items-center justify-between">
             <p className="font-black text-center">Thank you for reading!</p>
