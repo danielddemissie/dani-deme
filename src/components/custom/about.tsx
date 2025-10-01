@@ -1,4 +1,9 @@
-import { Code, Database, Globe, Shield, Star, Zap } from "lucide-react";
+"use client";
+
+import { useEffect, useState } from "react";
+import { useTheme } from "./theme-provider";
+import { Code, Database, Globe, Shield } from "lucide-react";
+import Image from "next/image";
 
 const skills = [
   {
@@ -24,6 +29,18 @@ const skills = [
 ];
 
 export function About() {
+  const { theme } = useTheme();
+  const [delayedImage, setDelayedImage] = useState(
+    `/images/danideme${theme === "dark" ? "-dark" : ""}.png`
+  );
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDelayedImage(`/images/danideme${theme === "dark" ? "-dark" : ""}.png`);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [theme]);
   return (
     <section
       id="about"
@@ -35,47 +52,55 @@ export function About() {
             ABOUT <span className="text-accent">ME</span>
           </h2>
           <div className="neo-badge bg-primary text-primary-foreground mx-auto">
-            PASSIONATE ABOUT DIGITAL EXPERIENCES
+            PASSIONATE ABOUT ENGINEERING
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-6 w-full">
           <div className="relative">
             <div className="neo-card p-0 overflow-hidden">
-              <img
-                src="/images/danideme.png"
+              <Image
+                loading="lazy"
+                src={delayedImage}
                 alt="Daniel working"
-                className="w-full h-full object-cover"
+                className="rounded-full object-cover w-[250px] h-[250px] md:w-[300px] md:h-[300px] lg:w-[350px] lg:h-[350px]"
+                width={600}
+                height={400}
               />
             </div>
           </div>
           <div className="space-y-6">
             <div className="">
               <p className="text-foreground font-medium text-pretty">
-                As a fullstack software engineer at{" "}
-                <span className="neo-badge bg-secondary text-secondary-foreground inline">
-                  PHISHFORT
+                I'm a{" "}
+                <span className="text-menu-foreground">
+                  Mid-Level Fullstack Software Developer
+                </span>{" "}
+                specializing in web development, primarily focusing on
+                delivering robust back-end services and efficient front-end
+                applications. I hold a B.Sc. in Computer Science and Engineering
+                from Adama Science and Technology University
+              </p>
+            </div>
+            <div>
+              <p className="text-foreground font-medium text-pretty">
+                My professional journey includes significant roles at{" "}
+                <span className="text-menu-foreground">
+                  PhishFort, Addis Software, and Utentic
                 </span>
-                , I specialize in building robust cybersecurity solutions that
-                protect businesses from online threats. My work involves
-                developing both user-facing applications and backend systems
-                that process and analyze security data.
+                , where I contributed to designing, architecting, and
+                implementing full-stack solutions.
               </p>
             </div>
             <div>
               <p className="text-foreground font-medium text-pretty">
-                I have experience working across the entire technology stack,
-                from designing intuitive user interfaces to architecting
-                scalable backend systems. I'm particularly passionate about
-                writing clean, maintainable code and staying up-to-date with the
-                latest web technologies.
-              </p>
-            </div>
-            <div>
-              <p className="text-foreground font-medium text-pretty">
-                When I'm not coding, you can find me exploring new technologies,
-                contributing to open source projects, or sharing my knowledge
-                through blog posts and technical discussions.
+                I am driven by a passion for engineering and continuous skill
+                enhancement. I actively build products and tools—from powerful
+                commercial applications to CLI utilities like{" "}
+                <span className="text-menu-foreground">pr-desc</span> to
+                simplify complex daily tasks, boost my personal productivity,
+                and deepen my technical expertise through continuous fun and
+                learning.
               </p>
             </div>
           </div>
