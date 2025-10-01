@@ -1,38 +1,33 @@
 ---
-title: Why we need to declare variable with var, let or const?
+title: Why Do We Need to Declare Variables with var, let, or const?
 createdAt: 2024-06-25
-summary: In JavaScript we can declare variables either by using one of these keyword `var, let or const`, or simply without any of them. A variable declared this way have the same behavior as a variable declared with the `var` keyword (more on this in the post).
+summary: In JavaScript, we can declare variables either by using one of these keywords: `var`, `let`, or `const`, or simply without any of them. A variable declared this way has the same behavior as a variable declared with the `var` keyword (more on this in the post).
 image: https://danideme-com.vercel.app/images/posts/declaring-js-variable-without-var-let-const.jpeg
 slug: declaring-js-variable-without-var-let-const
 ---
 
 ![let-const-var](https://danideme-com.vercel.app/images/posts/declaring-js-variable-without-var-let-const.jpeg)
 
-## What are undeclared variables in JavaScript and why we don't use them that often?
+## What Are Undeclared Variables in JavaScript and Why Don't We Use Them Often?
 
-_Undeclared variable_ is a variable that is not declare using one of the keywords var, let or const to create.
+An _undeclared variable_ is a variable that is not declared using one of the keywords `var`, `let`, or `const`.
 Syntax:
 
 ```js
-/** In JavaScript we normally declare and assign a value to our variables like */
+// In JavaScript, we normally declare and assign a value to our variables like this:
 
 var num = 10;
 
-/** when we are doing this we are actualy doing var num; first and
+// When we do this, JavaScript is actually doing `var num;` first and then `num = 10` on execution. In JavaScript, this is handled by the concept called `hoisting`.
 
-then num=10 on excution, in javaScript this is handled by the concept
+// We can also create a variable without `var`, `let`, or `const` keywords like this:
 
-called `hoisting`.*/
-
-/*We can also create a variable without `var, let or const` keywords like*/
-
-undeclaredVaribale = "value";
+undeclaredVariable = "value";
 ```
 
-In JavaScript `undeclared variable` does not exist until we assign them a value (They are not hoisted unlike a declared variables), Therefor assigning a value to `an undeclared variable` implicitly creates it as a global variable
-when the assignment is executed. `This means all undeclared variables are global variables`. (This is also highly likely to mess up the global objects at both browser and back-end environment.)
+In JavaScript, an `undeclared variable` does not exist until we assign it a value (they are not hoisted, unlike declared variables). Therefore, assigning a value to an undeclared variable implicitly creates it as a global variable when the assignment is executed. This means all undeclared variables are global variables. (This is also highly likely to mess up the global objects in both browser and back-end environments.)
 
-To demonstrate this behavior, let's have a look at this example:
+To demonstrate this behavior, let's look at this example:
 
 ```js
 function example() {
@@ -43,9 +38,8 @@ function example() {
 
 example();
 /**
- * now that we have executed the example function JavaScript
- * will create the `isGlobal` variable as a Global variable. Let's check this
- * */
+ * Now that we have executed the example function, JavaScript
+ * will create the `isGlobal` variable as a global variable. Let's check this:
 
 console.log(isGlobal);
 
@@ -58,43 +52,35 @@ console.log(isGlobal);
 console.log(isLocal);
 
 /**
-
-* Output: ReferenceError: isLocal is not defined
-
-* Reason: this is a totaly expected behavior b/c a declared variable will be first hoisted at either function scope or global scope before function
-
-* excution, more on this later.
-
-*/
+ Output: ReferenceError: isLocal is not defined
+ Reason: this is a totally expected behavior b/c a declared variable will be first hoisted at either function scope or global scope before function
+ execution, more on this later.
+ */
 ```
 
-Now that we understand how JavaScript handle undeclared variables, it's always recommended to use a declared variable in a function or global scope. Let's move to understand in depth about declared variables.
+Now that we understand how JavaScript handles undeclared variables, it's always recommended to use declared variables in a function or global scope. Let's move on to understand declared variables in depth.
 
 #### [var](#var)
 
 <a id="var"></a>
 
-Before `ES6` var was the only keyword available to create a variable, The scope of a variable declared with this keyword is its current execution context.
-This is either the enclosing function or for variables declared outside any function the global context.
+Before `ES6`, `var` was the only keyword available to create a variable. The scope of a variable declared with this keyword is its current execution context. This is either the enclosing function or, for variables declared outside any function, the global context.
 
-Example :
+Example:
 
 ```js
 // Global Scope:
 
 console.log(varExample);
 
-/* Output: undefined, the varaibale is hoisted to the top before excution
-
-therefore it dosen't throw RefrenceError and in javaScript variable declared with
-
-var will be initialized with undefined as value(This is not the case for let and const)
-
+/* Output: undefined, the variable is hoisted to the top before execution
+therefore it doesn't throw ReferenceError and in JavaScript, variables declared with
+var will be initialized with undefined as value (this is not the case for let and const)
 */
 
 var varExample = "value";
 
-// Funciton Scope:
+// Function Scope:
 
 function example() {
   console.log(isLocal);
@@ -105,23 +91,17 @@ function example() {
     var funScoped = true;
   }
 
-  console.log(funScoped); //Output: true, why?
+  console.log(funScoped); // Output: true, why?
 }
 
 example();
 
 /**
-
-* Output: undefined,
-
-* That's right, the variable is hoisted to top of the
-
-* function scope before excution. This kind of behaviour makes it
-
-* hard to debug so it's always recommended to declare and intialize
-
-* our variables at the top of the context before using.
-
+Output: true
+That's right, the variable is hoisted to the top of the
+function scope before execution. This kind of behavior makes it
+hard to debug, so it's always recommended to declare and initialize
+your variables at the top of the context before using them.
 */
 ```
 
@@ -129,21 +109,20 @@ example();
 
 <a id="let"></a>
 
-The major upgrade from the var in `ES6's let` is it's `block scoped` not function scoped, what does this means? it means the variable's
-scope is bound to the block it was declared not the function it was declared. Example? Sure:
+The major upgrade from `var` to `let` in ES6 is that `let` is block scoped, not function scoped. What does this mean? It means the variable's
+scope is bound to the block in which it was declared, not the function. Example? Sure:
 
 ```js
 //Block scope:
 
 function example() {
-  // let use the above exmaple
+  // let's use the above example
 
   let isLocal = true;
 
   if (isLocal) {
-    // A variable declared with let or const, will have block scope context i.e the context in this condition
-
-    // is bound to this condition/block only not to the funtion.
+    // A variable declared with let or const will have block scope context, i.e., the context in this condition
+    // is bound to this block only, not to the function.
 
     let funScoped = false;
   }
@@ -151,60 +130,37 @@ function example() {
   console.log(funScoped);
 
   /**
-
-    * Output: RefrenceError: funScope is not defined
-
-    * This is a very useful upgrade from var
-
-    */
+   * Output: ReferenceError: funScoped is not defined
+   * Reason: This is a totally expected behavior because a variable declared with let is block scoped and not accessible outside the block.
+   */
 }
 
 console.log(name);
-
 let name = "daniel";
 
-/**
-
-* Output: RefrenceError: Cannot access 'name' before initalizing
-
-*
-
-* This is b/c javaScript will hoist variables declared with both
-
-* const and let but they will remain uninitialized.
-
+/*
+Output: ReferenceError: Cannot access 'name' before initialization
+This is because JavaScript will hoist variables declared with both
+`const` and `let`, but they will remain uninitialized.
 */
 ```
 
-#### [const](#const)
+The two most noticeable differences between let and const are:
 
-<a id="const"></a>
-
-The const keyword is used to create `immutable variable` means variables whose value can not be reassigned or modified. Just like the let
-variable created with const are bound to the top block level context when hoisted.
-
-The two most noticeable differences with let and const are
-
-- const doesn't allow you to reassigned a variable.
-
-- const can't be declared with out initializing.
+- const doesn't allow you to reassign a variable.
+- const can't be declared without initializing.
 
 One final example:
 
 ```js
 
 const NAME;
+console.log(NAME); // Output: SyntaxError: Missing initializer in const declaration
+NAME = "daniel";
 
-console.log(NAME) //Output: SyntaxError: Missing initializer in const declaration
-
-NAME =  "daniel"
-
-
-
-const X =  'x'
-
-X='y'  //Ouput: TypeError: Assignment to constant variable.
+const X = 'x';
+X = 'y';  // Output: TypeError: Assignment to constant variable.
 
 ```
 
-I hope you find something useful in this post , read one more post if you have 5 minutes more 🤖
+I hope you found something useful in this post. If you have a few more minutes, read another post 🤖

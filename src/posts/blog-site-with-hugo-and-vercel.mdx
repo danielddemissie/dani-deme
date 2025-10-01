@@ -1,23 +1,22 @@
 ﻿---
-title: How to build a blog site with Hugo and Vercel
+title: How to Build a Blog Site with Hugo and Vercel
 createdAt: 2024-06-17
-summary: This my step by step guide to build and deploy blog site with `Hugo` and `Vercel` that I used for my blog site and I hope this might be some use for you too.
+summary: This is my step-by-step guide to building and deploying a blog site with `Hugo` and `Vercel`. I used this process for my own blog, and I hope it will be useful for you too.
 image: https://danideme-com.vercel.app/images/posts/blog-site-with-hugo-and-vercel.png
 slug: blog-site-with-hugo-and-vercel
 ---
 
 ![hugo-vercel](https://danideme-com.vercel.app/images/posts/blog-site-with-hugo-and-vercel.png)
 
-This a step by step guide to build and deploy blog site with `Hugo` and `Vercel`. So lets begin:
+This is a step-by-step guide to building and deploying a blog site with `Hugo` and `Vercel`. Let's get started!
 
 <br />
 
 ### 1. Install Hugo
 
-<br />
-Installing Hugo on Linux.
+#### Installing Hugo on Linux
 
-If your distribution support `snap`
+If your distribution supports `snap`:
 
 ```bash
 
@@ -25,7 +24,7 @@ snap install hugo --channel=extended
 
 ```
 
-Or you can use `apt-get`
+Or you can use `apt-get`:
 
 ```bash
 
@@ -33,7 +32,7 @@ sudo  apt-get  install  hugo
 
 ```
 
-Check if Hugo is successfully installed.
+Check if Hugo is successfully installed:
 
 ```bash
 
@@ -41,7 +40,7 @@ hugo  version
 
 ```
 
-If you get response similar to below, Hugo is successfully installed.
+If you get a response similar to the one below, Hugo is successfully installed:
 
 ```bash
 
@@ -49,19 +48,17 @@ hugo  v0.105.0-0e3b42b4a9bdeb4d866210819fc6ddcf51582ffa+extended  linux/amd64  B
 
 ```
 
-If you are using windows follow this instruction [hugo-windows](https://gohugo.io/getting-started/installing/#windows)
+If you are using Windows, follow this instruction: [hugo-windows](https://gohugo.io/getting-started/installing/#windows)
 
 <br />
-### 2.Create new Site
-<br />
 
-After installing Hugo lets create our blog site
+### 2. Create a New Site
 
-1. Open up your terminal.
+After installing Hugo, let's create your blog site:
 
-2. `cd` to your preferred directory to work.
-
-3. Create new Hugo site with your blog site name
+1. Open your terminal.
+2. `cd` to your preferred working directory.
+3. Create a new Hugo site with your chosen blog site name:
 
 ```bash
 
@@ -69,7 +66,7 @@ hugo  new  site  blog-site
 
 ```
 
-This will give us short instruction on how to add a theme and content to our site. We will see all of them in detail.
+This will provide short instructions on how to add a theme and content to your site. We'll cover these steps in detail below.
 
 ```bash
 Just a few more steps and you're ready to go:
@@ -87,20 +84,14 @@ Visit https://gohugo.io/ for quickstart guide and full documentation.
 
 ```
 
-<br />
+### 3. Use a Hugo Theme
 
-### 3.Use Hugo theme
+Hugo makes it easy to add and manage themes for your site's UI/UX. Once you select a [Hugo Theme](https://themes.gohugo.io/), you can add it to your site using one of these two methods:
 
-<br />
+1. Add the selected theme's Git repository as a `subtree` to your site (recommended if you want to follow updates from the theme's repository).
+2. Manually download or clone the theme's Git repository into your site's `themes` directory (use this if you are satisfied with the current version and don't need future updates).
 
-Hugo has nice configuration to add our prefers them and manage the UI/UX of our site. once we select a [Hugo-Themes](https://themes.gohugo.io/)
-
-we can proceed to add a theme to our site using one of these two methods.
-
-1. Make the selected theme git repository a `subtree` to our site
-   - if want to follow the change to the parent and update accordingly.
-2. Manually download the theme git repository and unzip it in our site under `theme` directory or use `git clone`. - use this approach if you are satisfied with the current change and doesn't intend to follow the change of the parent (theme) repository.
-   For our site lets use [m10c](https://github.com/vaga/hugo-theme-m10c.git) a theme similar to this blog site.
+For this guide, let's use [m10c](https://github.com/vaga/hugo-theme-m10c.git), a theme similar to this blog site.
 
 ```bash
 cd  themes
@@ -110,20 +101,18 @@ git  clone  https://github.com/vaga/hugo-theme-m10c.git  ./m10c
 
 <br />
 
-### 4.Update the config.toml
+### 4. Update the `config.toml`
 
-<br />
+Now, update your `config.toml` file to include:
 
-Now we have to tell the config.toml file
+- The theme you are using
+- Author information
+- Available menus
+- Social media links, and more
 
-- the theme used
-- about the author of the blog
-- available menus
-- social media links and more
+Open your `config.toml` file and add the following information:
 
-Open up your config.toml file and add this information
-
-`Remember to change the data to your own information.`
+> **Remember to change the data to your own information.**
 
 ```bash
 languageCode  =  "en-us"
@@ -170,15 +159,13 @@ name  =  "Twitter"
 url  =  "https://twitter.com/danielddeme"
 ```
 
-For this to work properly you have to add `favico` and the `avatar` image inside public/images folder and static/images folder with same file name.
+For this to work properly, you need to add the `favicon` and `avatar` images inside both the `public/images` and `static/images` folders, using the same file names.
 
 <br />
 
-### 5. Create first post
+### 5. Create Your First Post
 
-<br />
-
-Now it's time to add our first blog to our site to do this first go back to main directory and run this command.
+Now it's time to add your first blog post. First, go back to the main directory and run this command:
 
 ```bash
 
@@ -188,7 +175,7 @@ hugo  new  posts/first-post.md
 
 ```
 
-This command create posts directory with name `first-post.md` inside the `content` folder. When you open this file in text editor you will see a fragment of code `darft = true` which means the post is in a draft mode or so add some content to this file and change `draft = false` after doing that save your changes and run these commands.
+This command creates a `posts` directory with a file named `first-post.md` inside the `content` folder. When you open this file in your text editor, you'll see a line `draft = true`, which means the post is in draft mode. Add your content to this file and change `draft = false`. After saving your changes, run the following commands:
 
 ```bash
 hugo
@@ -196,7 +183,7 @@ hugo  server
 
 ```
 
-The `hugo` command will generate the necessary configuration and HTML files to render the app.
+The `hugo` command will generate the necessary configuration and HTML files to render your site.
 
 ```
 
@@ -222,17 +209,15 @@ Cleaned | 0
 Total in 94 ms
 ```
 
-`hugo server` will start up the application at port 1313 If no other service is running on that port. Now that our blog site is up and running lets open http://localhost:1313 in our browser.
+`hugo server` will start the application on port 1313 (if no other service is running on that port). Now that your blog site is up and running, open [http://localhost:1313](http://localhost:1313) in your browser.
 
 <br />
 
-### 6. Push to gitHub
+### 6. Push to GitHub
 
-<br />
+Create a new GitHub repository with your site name and copy the repository URL.
 
-Create new Github repository with the site name and copy the url.
-
-`The only reason i rename the main branch from master to main is I like main better unlike github's reason`.
+_Note: I rename the main branch from `master` to `main` simply because I prefer `main`._
 
 ```bash
 git  init
@@ -244,17 +229,17 @@ git  push  -u  origin  main
 
 ```
 
-### 7. Deploy to vercel
+### 7. Deploy to Vercel
 
-Vercel is the platform for frontend developers, providing the speed and reliability innovators need to create at the moment of inspiration.Beside that They offer one of the best Hobby(Free) account service.
+Vercel is a platform for frontend developers, providing the speed and reliability needed to create and deploy projects quickly. They also offer one of the best free (Hobby) account services.
 
 ![vercel-limit](https://i.ibb.co/XZn2z3T/image-2022-11-07-105121043.png)
 
-If you don't have vercel account, create free vercel account and come back here!.
+If you don't have a Vercel account, create a free account and then come back here.
 
-To deploy your Hugo sites to vercel does not require any additional configuration. All you have to do is just push the change you want to deploy to main branch of the project repository and vercel will do its own configuration for Hugo site and deploy the change.
+Deploying your Hugo site to Vercel does not require any additional configuration. All you have to do is push the changes you want to deploy to the `main` branch of your project repository, and Vercel will automatically configure and deploy your Hugo site.
 
-Lets deploy. first check If everything is saved then
+Let's deploy! First, make sure everything is saved, then run:
 
 ```bash
 git  add  .
@@ -262,7 +247,7 @@ git  commit  -m  "DEPLOY: deploy to vercel"
 git  push
 ```
 
-#### Open your vercel dashboard and Add new project
+#### Open your Vercel dashboard and add a new project
 
 ![add-new-project](https://i.ibb.co/SrXtrsP/Screenshot-from-2022-11-07-11-07-22.png)
 
@@ -270,14 +255,14 @@ git  push
 
 ![import-from-github](https://i.ibb.co/TtbbNYs/Screenshot-from-2022-11-07-11-07-41.png)
 
-#### Select the project to deploy and click deploy.
+#### Select the project to deploy and click "Deploy"
 
 ![select-the-project-to-deploy-and-the-click-deploy](https://i.ibb.co/sV7XfLt/Screenshot-from-2022-11-07-11-07-58.png)
 
-#### Congrats 🎉 your blog site is LIVE!.
+#### Congrats 🎉 Your blog site is LIVE!
 
 ![deployed](https://i.ibb.co/TTPvHVF/image-2022-11-07-122304084.png)
 
-Now whenever you made some change to the `main` branch vercel will update your site.
+Now, whenever you make changes to the `main` branch, Vercel will automatically update your site.
 
-I hope you find something useful in this post , read one more post if you have 5 minutes more 🤖
+I hope you found this post useful! If you have a few more minutes, check out another post 🤖
