@@ -5,7 +5,7 @@
 
 :root {
   --background: oklch(99.703% 0.00011 271.152);
-  --secondary-background: oklch(100% 0 0);
+  --secondary-background: oklch(97.703% 0.00011 271.152);
   --foreground: oklch(0% 0 0);
   --main-foreground: oklch(5.317% 0.02182 29.223);
   --main: oklch(100% 0.00011 271.152);
@@ -16,16 +16,16 @@
   --chart-active-dot: #000;
   --menu-foreground: #797979;
   --shiki-color-text: theme(--color-main-foreground);
-  --shiki-color-background: theme(--color-blue-400);
-  --shiki-token-constant: theme(--color-emerald-100);
-  --shiki-token-string: theme(--color-emerald-100);
-  --shiki-token-comment: theme(--color-main);
-  --shiki-token-keyword: theme(--color-cyan-500);
-  --shiki-token-parameter: theme(--color-pink-300);
-  --shiki-token-function: theme(--color-violet-300);
-  --shiki-token-string-expression: theme(--color-emerald-100);
-  --shiki-token-punctuation: theme(--color-foreground);
-  --shiki-token-link: theme(--color-foreground);
+
+  --ch-icon-text: theme(--color-main);
+  --ch-tabs-bg: theme(--color-secondary-background);
+  --ch-tab-border: theme(--color-secondary-background);
+  --ch-tab-active-border: theme(--color-secondary-background);
+  --ch-tab-active-bg: theme(--color-secondary-background);
+  --ch-tab-active-color: theme(--color-main-foreground);
+  --ch-tab-inactive-color: theme(--color-main);
+  --ch-tab-inactive-bg: theme(--color-secondary-background);
+  --ch-selection-background: theme(--color-cyan-700);
 }
 
 .dark {
