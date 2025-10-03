@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Link from "next/link";
+import { CodeBlock } from "./code-block";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -92,14 +93,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </blockquote>
     ),
 
-    pre: ({ children, ...props }) => (
-      <pre
-        className="mb-4 mt-6 overflow-x-auto rounded-lg bg-secondary-background p-4 border border-border"
-        {...props}
-      >
-        {children}
-      </pre>
-    ),
+    pre: ({ children }) => {
+      const codeElement = children as any;
+      const code = codeElement?.props?.children;
+      const className = codeElement?.props?.className;
+      const filename = codeElement?.props?.filename;
+
+      return (
+        <CodeBlock className={className} filename={filename}>
+          {code}
+        </CodeBlock>
+      );
+    },
     code: ({ children, className, ...props }) => {
       const isInline = !className;
 
