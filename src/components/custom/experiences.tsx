@@ -1,5 +1,6 @@
 import { ExternalLink, Calendar, MapPin } from "lucide-react";
 import { Badge } from "../ui/badge";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
 
 const experiences = [
   {
@@ -18,7 +19,7 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className="flex flex-col w-full items-start px-4 py-8 md:py-0 max-w-5xl mx-auto"
+      className="flex flex-col w-full items-center px-4 py-8 md:py-0 max-w-5xl mx-auto min-h-screen"
     >
       <div className="text-left mb-16 w-full">
         <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight">
@@ -31,11 +32,8 @@ export function Experience() {
 
       <div className="space-y-8">
         {experiences.map((exp, index) => (
-          <div
-            key={index}
-            className="py-2 border-dotted border-2 rounded-base px-4"
-          >
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+          <Card key={index} className="py-2px-4">
+            <CardHeader className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
               <div className="mb-4 lg:mb-0">
                 <h3 className="text-xl font-black mb-2 uppercase tracking-wide">
                   {exp.title}
@@ -64,20 +62,22 @@ export function Experience() {
                 <Calendar className="w-3 h-3" />
                 {exp.period}
               </Badge>
-            </div>
+            </CardHeader>
 
-            <p className="text-foreground font-medium mb-6 text-pretty">
-              {exp.description}
-            </p>
+            <CardContent>
+              <p className="text-foreground font-medium mb-6 text-pretty">
+                {exp.description}
+              </p>
 
-            <div className="flex flex-wrap gap-2">
-              {exp.technologies.map((tech) => (
-                <span key={tech} className="text-menu-foreground text-xs">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
+              <div className="flex flex-wrap gap-2">
+                {exp.technologies.map((tech) => (
+                  <span key={tech} className="text-menu-foreground text-xs">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </section>

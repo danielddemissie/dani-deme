@@ -36,7 +36,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="flex flex-col min-h-screen px-4 py-8 md:py-0 w-full max-w-5xl mx-auto"
+      className="flex flex-col min-h-screen px-4 py-8 md:py-0 w-full max-w-5xl "
     >
       <div className="flex flex-col items-start gap-8 w-full">
         <div className="text-left mb-16 w-full">
@@ -116,7 +116,7 @@ export function Contact() {
           </div>
         </div>
 
-        <footer className="border-t-4 border-dotted w-full text-center">
+        <footer className=" w-full text-center">
           <div className="mx-auto text-menu-foreground flex items-center justify-between">
             <p> © {year} DANIEL DEMELASH</p>
             {/* show stars and forks */}

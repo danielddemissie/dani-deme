@@ -16,8 +16,8 @@ export default function Home() {
         <Hero />
         <About />
         <Projects />
-        <PostList posts={allPosts} />
         <Experience />
+        <PostList posts={allPosts} />
         <Contact />
       </div>
     </main>

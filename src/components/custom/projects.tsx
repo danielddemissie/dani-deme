@@ -110,7 +110,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="flex flex-col items-center min-h-screen px-4 py-8 md:py-0 w-full max-w-6xl mx-auto"
+      className="flex flex-col items-center px-4 py-8 md:py-0 w-full max-w-6xl mx-auto min-h-screen"
     >
       <div className="text-left mb-16 w-full">
         <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight">
