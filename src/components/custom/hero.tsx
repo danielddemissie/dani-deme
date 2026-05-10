@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 export function Hero() {
   const { theme } = useTheme();
   const [delayedImage, setDelayedImage] = useState(
-    `/images/danideme${theme === "dark" ? "-dark" : ""}.png`
+    `/images/danideme${theme === "dark" ? "-dark" : ""}.png`,
   );
 
   useEffect(() => {
@@ -36,14 +36,13 @@ export function Hero() {
             </h1>
 
             <div className="uppercase mb-2 inline-block">
-              MID LEVEL SOFTWARE developer
+              FULLSTACK SOFTWARE ENGINEER
             </div>
           </div>
 
           <p className="uppercase text-foreground max-w-xl mb-8 leading-relaxed">
             I'm Daniel, fullstack typeScript developer. Building good quality
-            softwares with TypeScript, React/Next.js, and NodeJs/NestJs I'm
-            currently working as mid-level software developer.
+            softwares with TypeScript, React/Next.js, and NodeJs/NestJs.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full">

@@ -31,7 +31,7 @@ const skills = [
 export function About() {
   const { theme } = useTheme();
   const [delayedImage, setDelayedImage] = useState(
-    `/images/danideme${theme === "dark" ? "-dark" : ""}.png`
+    `/images/danideme${theme === "dark" ? "-dark" : ""}.png`,
   );
 
   useEffect(() => {
@@ -74,7 +74,7 @@ export function About() {
               <p className="text-foreground font-medium text-pretty">
                 I'm a{" "}
                 <span className="text-menu-foreground">
-                  Mid-Level Fullstack Software Developer
+                  FULLSTACK SOFTWARE ENGINEER
                 </span>{" "}
                 specializing in web development, primarily focusing on
                 delivering robust back-end services and efficient front-end
