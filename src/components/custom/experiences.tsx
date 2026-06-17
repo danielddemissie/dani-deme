@@ -9,7 +9,7 @@ const experiences = [
     period: "APR 2023 — JUN 2026",
     location: "REMOTE",
     description:
-      "Owned core infrastructure across a multi-service anti-phishing platform. Migrated 3M+ incidents to Cloudflare D1, built the analyst incident-management dashboard (priority queue + AI case-triage) that cut takedown time ~50%, and shipped the NightHawk browser extension (2,000+ installs).",
+      "Owned core infrastructure across a multi-service anti-phishing platform. Migrated a 3M+ incident-history collection (plus 100K+ attachments, 60K+ documents) to Cloudflare D1, built the client-facing dashboard (stats + reporting), contributed to the analyst tooling and AI case-triage that cut takedown time ~50%, and shipped the NightHawk browser extension (2,000+ installs).",
     technologies: [
       "CLOUDFLARE WORKERS",
       "D1",

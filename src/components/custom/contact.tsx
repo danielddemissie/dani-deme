@@ -58,7 +58,7 @@ export function Contact() {
             <Mail className="w-12 h-12 mx-auto" />
             <p className="text-sm font-medium mb-4">Drop me a line anytime</p>
             <Button>
-              <a href="mailto:daniel@danideme.com" className="text-xs">
+              <a href="mailto:danielddemissie@gmail.com" className="text-xs">
                 SEND EMAIL
               </a>
             </Button>
@@ -106,7 +106,7 @@ export function Contact() {
             </p>
             <Button>
               <a
-                href="mailto:daniel@danideme.com"
+                href="mailto:danielddemissie@gmail.com"
                 className="neo-button bg-primary text-primary-foreground inline-flex items-center gap-2"
               >
                 <Send className="w-5 h-5" />

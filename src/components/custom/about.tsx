@@ -86,9 +86,10 @@ export function About() {
               <p className="text-foreground font-medium text-pretty">
                 Over{" "}
                 <span className="text-menu-foreground">3+ years at PhishFort</span>
-                , I migrated 3M+ incident records to Cloudflare D1, built the
-                analyst dashboard that cut takedown time by ~50%, and shipped a
-                browser extension that reached 2,000+ installs.
+                , I migrated a 3M+ incident-history collection to Cloudflare D1,
+                built the client-facing dashboard, and contributed to analyst
+                tooling that cut takedown time by ~50%. I also shipped a browser
+                extension that reached 2,000+ installs.
               </p>
             </div>
             <div>

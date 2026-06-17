@@ -86,7 +86,7 @@ const projects: Project[] = [
   {
     title: "Anti-Phishing Platform — Edge & Migration",
     description:
-      "Commercial anti-fraud platform work: migrated 3M+ incidents and 5M+ history records from a Firebase/Postgres sync to Cloudflare D1 so large-client data loads near-instantly, and built the analyst dashboard with a priority queue + AI case-triage that cut takedown time ~50%. (Private/commercial — happy to walk through the architecture in an interview.)",
+      "Commercial anti-fraud platform work: migrated a 3M+ incident-history collection (plus 100K+ attachments, 60K+ documents) from a Firebase/Postgres sync to Cloudflare D1 so large-client data loads near-instantly, built the client-facing dashboard (stats + reporting), and contributed to the analyst tooling + AI case-triage that cut takedown time ~50%. (Private/commercial — happy to walk through the architecture in an interview.)",
     technologies: ["CLOUDFLARE WORKERS", "D1", "tRPC", "NEXT.JS", "NESTJS"],
   },
   {

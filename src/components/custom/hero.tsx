@@ -89,7 +89,7 @@ export function Hero() {
                 <span className="sr-only">LinkedIn</span>
               </Badge>
             </a>
-            <a href="mailto:daniel@danideme.com">
+            <a href="mailto:danielddemissie@gmail.com">
               <Badge>
                 <Mail className="w-5 h-5" />
                 <span className="sr-only">Email</span>
