@@ -2,29 +2,29 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "./theme-provider";
-import { Code, Database, Globe, Shield } from "lucide-react";
+import { Code, Database, Cloud, Shield } from "lucide-react";
 import Image from "next/image";
 
 const skills = [
   {
-    icon: Code,
-    title: "FRONTEND DEV",
-    description: "React, Next.js, TypeScript, Tailwind CSS",
-  },
-  {
-    icon: Database,
-    title: "BACKEND DEV",
-    description: "Node.js, NextJs, PostgreSQL, MongoDB",
-  },
-  {
-    icon: Globe,
-    title: "FULL STACK",
-    description: "End-to-end application development",
+    icon: Cloud,
+    title: "EDGE & SERVERLESS",
+    description: "Cloudflare Workers, D1, Pages, Wrangler",
   },
   {
     icon: Shield,
     title: "SECURITY",
-    description: "Cybersecurity, fraud prevention, secure coding",
+    description: "Anti-phishing, fraud prevention, secure coding",
+  },
+  {
+    icon: Code,
+    title: "FRONTEND",
+    description: "React, Next.js, TypeScript, Tailwind CSS",
+  },
+  {
+    icon: Database,
+    title: "BACKEND",
+    description: "Node.js, NestJS, tRPC, PostgreSQL, D1",
   },
 ];
 
@@ -74,33 +74,34 @@ export function About() {
               <p className="text-foreground font-medium text-pretty">
                 I'm a{" "}
                 <span className="text-menu-foreground">
-                  FULLSTACK SOFTWARE ENGINEER
+                  FULL-STACK SOFTWARE ENGINEER
                 </span>{" "}
-                specializing in web development, primarily focusing on
-                delivering robust back-end services and efficient front-end
-                applications. I hold a B.Sc. in Computer Science and Engineering
-                from Adama Science and Technology University
+                specializing in Cloudflare edge/serverless and applied security.
+                I build production anti-fraud systems end to end in TypeScript. I
+                hold a B.Sc. in Computer Science and Engineering from Adama Science
+                and Technology University.
               </p>
             </div>
             <div>
               <p className="text-foreground font-medium text-pretty">
-                My professional journey includes significant roles at{" "}
+                Over{" "}
+                <span className="text-menu-foreground">3+ years at PhishFort</span>
+                , I migrated a 3M+ incident-history collection to Cloudflare D1,
+                built the client-facing dashboard, and contributed to analyst
+                tooling that cut takedown time by ~50%. I also shipped a browser
+                extension that reached 2,000+ installs.
+              </p>
+            </div>
+            <div>
+              <p className="text-foreground font-medium text-pretty">
+                I work in an{" "}
                 <span className="text-menu-foreground">
-                  PhishFort, Addis Software, and Utentic
+                  AI-augmented (agentic) workflow
                 </span>
-                , where I contributed to designing, architecting, and
-                implementing full-stack solutions.
-              </p>
-            </div>
-            <div>
-              <p className="text-foreground font-medium text-pretty">
-                I am driven by a passion for engineering and continuous skill
-                enhancement. I actively build products and tools—from powerful
-                commercial applications to CLI utilities like{" "}
-                <span className="text-menu-foreground">pr-desc</span> to
-                simplify complex daily tasks, boost my personal productivity,
-                and deepen my technical expertise through continuous fun and
-                learning.
+                —running coding agents like Claude Code and Hermes inside a
+                security-isolated Docker sandbox, with a plan-then-build review
+                discipline so AI output stays auditable. I care about shipping
+                fast and safely.
               </p>
             </div>
           </div>

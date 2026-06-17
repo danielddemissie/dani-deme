@@ -25,33 +25,42 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Daniel Demissie - Fullstack Software Engineer",
+  title: "Daniel Demelash — Edge & Security Full-Stack Engineer",
   description:
-    "Fullstack software engineer passionate about building exceptional web experiences. Currently working at Phishfort.",
+    "Full-stack engineer specializing in Cloudflare edge/serverless (Workers, D1, tRPC) and applied security — anti-phishing & fraud prevention. Remote, TypeScript end to end.",
   keywords: [
+    "Daniel Demelash",
     "Daniel Demissie",
     "Software Engineer",
-    "Fullstack Developer",
+    "Full-Stack Developer",
+    "Cloudflare Workers",
+    "Cloudflare D1",
+    "Edge Computing",
+    "Serverless",
+    "Cybersecurity",
+    "Anti-phishing",
+    "tRPC",
     "React",
     "Next.js",
     "TypeScript",
+    "Remote",
   ],
-  authors: [{ name: "Daniel Demissie" }],
-  creator: "Daniel Demissie",
+  authors: [{ name: "Daniel Demelash" }],
+  creator: "Daniel Demelash",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://danideme.com",
-    title: "Daniel Demissie - Fullstack Software Engineer",
+    title: "Daniel Demelash — Edge & Security Full-Stack Engineer",
     description:
-      "Fullstack software engineer passionate about building exceptional web experiences.",
-    siteName: "Daniel Demissie Portfolio",
+      "Full-stack engineer specializing in Cloudflare edge/serverless and applied security. 3+ years shipping cybersecurity infrastructure at the edge.",
+    siteName: "Daniel Demelash Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Daniel Demissie - Fullstack Software Engineer",
+    title: "Daniel Demelash — Edge & Security Full-Stack Engineer",
     description:
-      "Fullstack software engineer passionate about building exceptional web experiences.",
+      "Full-stack engineer specializing in Cloudflare edge/serverless and applied security.",
     creator: "@danideme",
   },
 };

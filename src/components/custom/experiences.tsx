@@ -4,13 +4,20 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 
 const experiences = [
   {
-    title: "FULLSTACK SOFTWARE ENGINEER",
+    title: "FULL-STACK SOFTWARE ENGINEER",
     company: "PHISHFORT",
-    period: "2023 — PRESENT",
+    period: "APR 2023 — JUN 2026",
     location: "REMOTE",
     description:
-      "Building cybersecurity solutions to protect businesses from online threats. Developing both frontend applications and backend systems for fraud detection and prevention.",
-    technologies: ["REACT", "NEXT.JS", "TYPESCRIPT", "NODE.JS", "POSTGRESQL"],
+      "Owned core infrastructure across a multi-service anti-phishing platform. Migrated a 3M+ incident-history collection (plus 100K+ attachments, 60K+ documents) to Cloudflare D1, built the client-facing dashboard (stats + reporting), contributed to the analyst tooling and AI case-triage that cut takedown time ~50%, and shipped the NightHawk browser extension (2,000+ installs).",
+    technologies: [
+      "CLOUDFLARE WORKERS",
+      "D1",
+      "tRPC",
+      "NEXT.JS",
+      "NESTJS",
+      "TYPESCRIPT",
+    ],
     link: "https://phishfort.com",
   },
 ];
