@@ -8,11 +8,17 @@ import {
   Terminal,
   Smartphone,
   Sparkles,
+  Shield,
+  Cloud,
 } from "lucide-react";
 import React from "react";
 
 function getProjectSymbol(project: { title: string; technologies?: string[] }) {
   const name = project.title.toLowerCase();
+  if (name.includes("nighthawk") || name.includes("phishing"))
+    return <Shield className="w-6 h-6 text-menu-foreground" />;
+  if (name.includes("platform") || name.includes("edge") || name.includes("migration"))
+    return <Cloud className="w-6 h-6 text-menu-foreground" />;
   if (name.includes("music") || name.includes("awraris"))
     return <Music className="w-6 h-6 text-menu-foreground" />;
   if (name.includes("cli") || name.includes("command"))
@@ -60,7 +66,29 @@ function ProjectImageWithFallback({
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 
-const projects = [
+type Project = {
+  title: string;
+  description: string;
+  technologies: string[];
+  image?: string;
+  github?: string;
+  demo?: string;
+};
+
+const projects: Project[] = [
+  {
+    title: "NightHawk",
+    description:
+      "Cross-browser extension protecting the cryptocurrency community from phishing. Reached 2,000+ Chrome installs, letting users and analysts report phishing sites directly from the browser.",
+    technologies: ["REACT", "TYPESCRIPT", "BROWSER-EXTENSION", "SECURITY"],
+    demo: "https://nighthawk.phishfort.com/",
+  },
+  {
+    title: "Anti-Phishing Platform — Edge & Migration",
+    description:
+      "Commercial anti-fraud platform work: migrated 3M+ incidents and 5M+ history records from a Firebase/Postgres sync to Cloudflare D1 so large-client data loads near-instantly, and built the analyst dashboard with a priority queue + AI case-triage that cut takedown time ~50%. (Private/commercial — happy to walk through the architecture in an interview.)",
+    technologies: ["CLOUDFLARE WORKERS", "D1", "tRPC", "NEXT.JS", "NESTJS"],
+  },
   {
     title: "PR DESC",
     description:
@@ -148,29 +176,33 @@ export function Projects() {
               </div>
 
               <div className="flex gap-3">
-                <Button>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="neo-button bg-accent text-accent-foreground text-xs flex items-center gap-2"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    LIVE DEMO
-                  </a>
-                </Button>
+                {project.demo && (
+                  <Button>
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="neo-button bg-accent text-accent-foreground text-xs flex items-center gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      LIVE DEMO
+                    </a>
+                  </Button>
+                )}
 
-                <Button>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="neo-button text-xs flex items-center gap-2"
-                  >
-                    <Github className="w-4 h-4" />
-                    CODE
-                  </a>
-                </Button>
+                {project.github && (
+                  <Button>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="neo-button text-xs flex items-center gap-2"
+                    >
+                      <Github className="w-4 h-4" />
+                      CODE
+                    </a>
+                  </Button>
+                )}
               </div>
             </div>
           </div>
