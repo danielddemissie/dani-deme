@@ -76,8 +76,9 @@ export function About() {
                 <span className="text-menu-foreground">
                   FULL-STACK SOFTWARE ENGINEER
                 </span>{" "}
-                specializing in Cloudflare edge/serverless and applied security.
-                I build production anti-fraud systems end to end in TypeScript. I
+                with 5+ years of professional experience, specializing in
+                Cloudflare edge/serverless and applied security. I build
+                production anti-fraud systems end to end in TypeScript. I
                 hold a B.Sc. in Computer Science and Engineering from Adama Science
                 and Technology University.
               </p>

@@ -41,10 +41,10 @@ export function Hero() {
           </div>
 
           <p className="uppercase text-foreground max-w-xl mb-8 leading-relaxed">
-            I'm Daniel, a full-stack engineer specializing in Cloudflare
-            edge/serverless and applied security. I build production anti-fraud
-            systems end to end in TypeScript — Cloudflare Workers &amp; D1, tRPC,
-            React/Next.js, and NestJS.
+            I'm Daniel, a full-stack engineer with 5+ years of experience,
+            specializing in Cloudflare edge/serverless and applied security. I
+            build production anti-fraud systems end to end in TypeScript —
+            Cloudflare Workers &amp; D1, tRPC, React/Next.js, and NestJS.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full">

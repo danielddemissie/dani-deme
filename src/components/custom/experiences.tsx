@@ -20,6 +20,24 @@ const experiences = [
     ],
     link: "https://phishfort.com",
   },
+  {
+    title: "FULL-STACK DEVELOPER",
+    company: "ADDIS SOFTWARE PLC",
+    period: "AUG 2019 — DEC 2022",
+    location: "ADDIS ABABA, ET",
+    description:
+      "Built full-stack products for a software & IT firm serving clients nationwide and worldwide. Contributed to the architecture of Behiwot, an event-planning platform — converting complex Figma designs into clean, maintainable React, building secure Node.js/Express APIs, integrating local + international payments, and improving state management (Redux/Redux-Saga) and MongoDB aggregations.",
+    technologies: ["REACT", "NODE.JS", "EXPRESS", "REDUX-SAGA", "MONGODB"],
+  },
+  {
+    title: "FULL-STACK DEVELOPER (FREELANCE)",
+    company: "UTENTIC",
+    period: "2021",
+    location: "REMOTE",
+    description:
+      "Travel-community startup connecting travelers with curated trip groups. Built scalable REST APIs in Node.js/Express and designed back-end services and front-end UI components.",
+    technologies: ["NODE.JS", "EXPRESS", "REACT"],
+  },
 ];
 
 export function Experience() {
